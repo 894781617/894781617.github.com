@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title%} 往事如烟的博客{% endblock %}
+
+{% block content %}
+
+     <div id="content" class="content" style=" margin-left: 250px;">
+    <section id="posts" class="posts-expand">
+    <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article" style="opacity: 1; display: block; transform: translateY(0px);">
+        <header class="post-header">
+            <h1 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="#" itemprop="url">
+                    {{ article.title }}
+                </a>
+            </h1>
+            <div class="post-meta">
+            <span class="post-time">
+                <span class="post-meta-item-icon">
+                    <i class="fa fa-calendar-o"></i>
+                </span>
+                <span class="post-meta-item-text">发表于</span>
+                <time title="Post created" itemprop="dateCreated datePublished" datetime="#">
+                {{ article.create_time|date:'Y-m-d' }}
+                </time>
+
+            </span>
+
+            <span class="post-category">
+                <span class="post-meta-divider">|</span>
+
+                <span class="post-meta-item-icon">
+                    <i class="fa fa-folder-o"></i>
+                </span>
+
+                <span class="post-meta-item-text">分类于</span>
+
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                    <a href="/detial?id={{ article.tag.id}}" itemprop="url" rel="index">
+                        <span itemprop="name">{{ article.tag.name }}</span>
+                    </a>
+                </span>
+            </span>
+        </div>
+        </header>
+        <div class="post-body" itemprop="articleBody">
+<p>{{ article.content }}</p>
+        </div>
+        <footer class="post-footer">
+            <div class="post-eof"></div>
+        </footer>
+    </article>
+  </section>
+    </div>
+
+{% endblock %}

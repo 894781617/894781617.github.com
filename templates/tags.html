@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+标签云
+{% endblock %}
+
+{% block content %}
+    <div class="content-wrap">
+    <div id="content" class="content">
+
+        <div id="posts" class="posts-expand">
+            <header class="post-header">
+                <h2 class="post-title" itemprop="name headline">tags</h2>
+            </header>
+
+            <div class="tag-cloud">
+                <div class="tag-cloud-title">
+                    目前共计 {{ count }} 个标签
+                </div>
+                <div class="tag-cloud-tags">
+
+                    {% for tag_blog in all_tag %}
+                    <a href="/detial?id={{ tag_blog.id}}" style="font-size: 20px; color: #444">{{ tag_blog.name}}</a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="comments" id="comments">
+
+        <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+
+    </div>
+
+</div>
+{% endblock %}
